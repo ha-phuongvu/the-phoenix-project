@@ -1,0 +1,428 @@
+/* ===================================
+   3D Flip Book — Landscape Layout
+   =================================== */
+
+/* --- Wrapper with table shadow --- */
+.book-wrapper {
+  position: relative;
+  width: var(--book-width);
+  height: var(--book-height);
+}
+
+/* Table surface shadow */
+.book-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  right: 10px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- The book --- */
+.book {
+  position: relative;
+  width: var(--book-width);
+  height: var(--book-height);
+  perspective: 6000px;
+  perspective-origin: 50% 50%;
+}
+
+/* --- Spine --- */
+.book::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: calc(100% + 8px);
+  background: linear-gradient(to right,
+    rgba(0,0,0,0.4),
+    var(--spine-color) 25%,
+    rgba(80, 50, 25, 0.95) 50%,
+    var(--spine-color) 75%,
+    rgba(0,0,0,0.4)
+  );
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+/* --- Leaf --- */
+.leaf {
+  position: absolute;
+  top: 0;
+  left: var(--page-width);
+  width: var(--page-width);
+  height: var(--book-height);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+}
+
+/* --- Faces --- */
+.leaf-front,
+.leaf-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.leaf-front {
+  border-radius: 0 4px 4px 0;
+  background: var(--parchment);
+}
+
+.leaf-back {
+  transform: rotateY(180deg);
+  border-radius: 4px 0 0 4px;
+  background: var(--parchment);
+}
+
+/* --- Light overlay (manipulated by JS) --- */
+.light-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0;
+}
+
+/* --- Corner curl hint --- */
+.corner-curl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 0 0;
+  border-color: transparent transparent var(--parchment-dark) transparent;
+  z-index: 65;
+  pointer-events: none;
+  transition: border-width 0.5s ease;
+  filter: drop-shadow(-1px -1px 2px rgba(0,0,0,0.12));
+}
+
+.leaf:hover > .leaf-front > .corner-curl {
+  border-width: 0 0 30px 30px;
+}
+
+/* --- Page surface --- */
+.page {
+  width: 100%;
+  height: 100%;
+  padding: 40px 48px;
+  overflow: hidden;
+  position: relative;
+}
+
+.leaf-front .page {
+  background:
+    radial-gradient(ellipse at 75% 25%, var(--page-stain) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 80%, var(--page-stain) 0%, transparent 60%),
+    linear-gradient(to right, var(--parchment-dark) 0%, var(--parchment) 5%, var(--parchment-light) 100%);
+  box-shadow: inset 3px 0 10px rgba(0,0,0,0.05);
+}
+
+.leaf-back .page {
+  padding: 40px 48px;
+  background:
+    radial-gradient(ellipse at 25% 55%, var(--page-stain) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, var(--page-stain) 0%, transparent 60%),
+    linear-gradient(to left, var(--parchment-dark) 0%, var(--parchment) 5%, var(--parchment-light) 100%);
+  box-shadow: inset -3px 0 10px rgba(0,0,0,0.05);
+}
+
+/* Faint lines */
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 25px,
+    rgba(180, 160, 120, 0.1) 25px,
+    rgba(180, 160, 120, 0.1) 26px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page > * { position: relative; z-index: 1; }
+
+/* --- Spine gutter shadows on pages --- */
+.leaf-front .page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 22px; height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.06), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.leaf-back .page::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 22px; height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.06), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- Cover styles --- */
+.cover-front {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, var(--leather-light) 0%, var(--leather) 45%, var(--leather-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 4px 4px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Leather grain */
+.cover-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0,0,0,0.012) 1px, rgba(0,0,0,0.012) 2px),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.008) 3px, rgba(0,0,0,0.008) 4px);
+  pointer-events: none;
+}
+
+/* Gold frame */
+.cover-front::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(184, 146, 62, 0.18);
+  pointer-events: none;
+}
+
+.cover-back {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, var(--leather) 0%, var(--leather-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px 0 0 4px;
+  position: relative;
+}
+
+.cover-back::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(184, 146, 62, 0.1);
+  pointer-events: none;
+}
+
+/* --- Page stack (visible page edges) --- */
+.page-stack-right,
+.page-stack-left {
+  position: absolute;
+  top: 3px;
+  height: calc(100% - 6px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Right-side stack (unflipped pages) */
+.page-stack-right {
+  right: -1px;
+  width: var(--page-width);
+  border-radius: 0 4px 4px 0;
+}
+
+.page-stack-right .stack-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  border-right: 1px solid rgba(180, 160, 120, 0.25);
+  background: linear-gradient(to right, transparent 90%, rgba(180, 160, 120, 0.08));
+}
+
+.page-stack-right .stack-page:nth-child(1) { transform: translateX(2px) translateZ(-1px); }
+.page-stack-right .stack-page:nth-child(2) { transform: translateX(4px) translateZ(-2px); }
+.page-stack-right .stack-page:nth-child(3) { transform: translateX(5px) translateZ(-3px); }
+.page-stack-right .stack-page:nth-child(4) { transform: translateX(6px) translateZ(-4px); opacity: 0.7; }
+.page-stack-right .stack-page:nth-child(5) { transform: translateX(7px) translateZ(-5px); opacity: 0.5; }
+
+/* Left-side stack (flipped pages) */
+.page-stack-left {
+  left: -1px;
+  width: var(--page-width);
+  border-radius: 4px 0 0 4px;
+}
+
+.page-stack-left .stack-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+  border-left: 1px solid rgba(180, 160, 120, 0.25);
+  background: linear-gradient(to left, transparent 90%, rgba(180, 160, 120, 0.08));
+}
+
+.page-stack-left .stack-page:nth-child(1) { transform: translateX(-2px) translateZ(-1px); }
+.page-stack-left .stack-page:nth-child(2) { transform: translateX(-4px) translateZ(-2px); }
+.page-stack-left .stack-page:nth-child(3) { transform: translateX(-5px) translateZ(-3px); }
+.page-stack-left .stack-page:nth-child(4) { transform: translateX(-6px) translateZ(-4px); opacity: 0.7; }
+.page-stack-left .stack-page:nth-child(5) { transform: translateX(-7px) translateZ(-5px); opacity: 0.5; }
+
+/* Bottom edge shadow for thickness */
+.book::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  right: 10px;
+  height: 8px;
+  background: linear-gradient(to bottom,
+    rgba(160, 140, 100, 0.3),
+    rgba(160, 140, 100, 0.15) 40%,
+    transparent
+  );
+  border-radius: 0 0 4px 4px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Top edge highlight */
+.book-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background: linear-gradient(to bottom,
+    rgba(220, 210, 180, 0.4),
+    transparent
+  );
+  border-radius: 4px 4px 0 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Static left page --- */
+.static-left {
+  position: absolute;
+  top: 0; left: 0;
+  width: var(--page-width);
+  height: var(--book-height);
+  background:
+    radial-gradient(ellipse at 50% 50%, var(--page-stain) 0%, transparent 60%),
+    linear-gradient(to left, var(--parchment-dark) 0%, var(--parchment) 5%, var(--parchment-light) 100%);
+  border-radius: 4px 0 0 4px;
+  box-shadow: inset -3px 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Controls --- */
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.btn-flip {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--parchment-dark);
+  background: none;
+  border: 1px solid rgba(184, 146, 62, 0.2);
+  padding: 10px 34px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-flip:hover:not(:disabled) {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+  background: rgba(184, 146, 62, 0.05);
+}
+
+.btn-flip:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.page-indicator {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 15px;
+  color: var(--parchment-edge);
+  letter-spacing: 2px;
+  min-width: 130px;
+  text-align: center;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1560px) {
+  :root {
+    --book-width: 1200px;
+    --book-height: 720px;
+    --page-width: 600px;
+  }
+  .page { padding: 34px 40px; }
+}
+
+@media (max-width: 1260px) {
+  :root {
+    --book-width: 1000px;
+    --book-height: 640px;
+    --page-width: 500px;
+  }
+  .page { padding: 28px 34px; }
+}
+
+@media (max-width: 1060px) {
+  :root {
+    --book-width: 820px;
+    --book-height: 580px;
+    --page-width: 410px;
+  }
+  .page { padding: 24px 28px; font-size: 14px; }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --book-width: 640px;
+    --book-height: 520px;
+    --page-width: 320px;
+  }
+  .page { padding: 20px 22px; font-size: 12px; }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --book-width: 480px;
+    --book-height: 480px;
+    --page-width: 240px;
+  }
+  .page { padding: 14px 16px; font-size: 11px; }
+}

@@ -1,0 +1,67 @@
+/* ===================================
+   Design Tokens & Base Reset
+   Landscape "Lying Down" Book
+   =================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --parchment: #d5c4a1;
+  --parchment-light: #e6dcc8;
+  --parchment-dark: #c4b08a;
+  --parchment-edge: #b8a67e;
+  --page-stain: rgba(139, 109, 63, 0.08);
+
+  --leather: #3b2415;
+  --leather-light: #5c3a24;
+  --leather-dark: #1a0d05;
+  --spine-color: #2e1a0e;
+
+  --ink: #2a1a0e;
+  --ink-light: #4a3625;
+  --ink-faded: #7a6548;
+  --ink-heading: #1e1008;
+
+  --gold: #b8923e;
+  --gold-dim: #8b7032;
+  --red-accent: #8b3a3a;
+  --green-accent: #4a6b3a;
+  --blue-accent: #3a5a7a;
+
+  --shadow-heavy: rgba(20, 10, 0, 0.55);
+  --shadow-med: rgba(30, 15, 0, 0.3);
+  --shadow-light: rgba(40, 20, 0, 0.12);
+
+  /* Landscape book dimensions — large for readability */
+  --book-width: 1500px;
+  --book-height: 880px;
+  --page-width: 750px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Lora', 'Georgia', serif;
+  background: #0f0804;
+  background-image:
+    radial-gradient(ellipse at 50% 40%, rgba(50, 30, 12, 0.7) 0%, #0f0804 70%);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px 20px;
+  overflow: hidden;
+  user-select: none;
+}

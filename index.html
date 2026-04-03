@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Phoenix Project — Book Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/book.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/lang-toggle.css">
+</head>
+<body>
+
+  <!-- Language toggle -->
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
+  </div>
+
+  <div class="book-wrapper">
+    <div class="book" id="book">
+
+      <!-- Page stack layers (visible page edges for realism) -->
+      <div class="page-stack-left" id="stackLeft" style="visibility:hidden;">
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+      </div>
+      <div class="page-stack-right" id="stackRight">
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+        <div class="stack-page"></div>
+      </div>
+
+      <!-- STATIC LEFT PAGE -->
+      <div class="static-left">
+        <div class="static-content">
+          <p class="static-ornament">&#9753; &#9753; &#9753;</p>
+          <p data-en="For those who fight daily battles&lt;br&gt;in the trenches of IT operations&lt;br&gt;and dare to change the way we work."
+             data-vi="D&agrave;nh cho nh&#7919;ng ai chi&#7871;n &#273;&#7845;u m&#7895;i ng&agrave;y&lt;br&gt;trong chi&#7871;n h&agrave;o v&#7853;n h&agrave;nh CNTT&lt;br&gt;v&agrave; d&aacute;m thay &#273;&#7893;i c&aacute;ch ch&uacute;ng ta l&agrave;m vi&#7879;c.">For those who fight daily battles<br>in the trenches of IT operations<br>and dare to change the way we work.</p>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 0 — COVER / TITLE PAGE ====== -->
+      <div class="leaf" id="leaf-0">
+        <div class="leaf-front">
+          <div class="cover-front">
+            <div class="cover-content">
+              <p class="cover-ornament">&#9753; &#9753; &#9753;</p>
+              <p class="cover-label" data-en="A Book Review Session" data-vi="Phi&ecirc;n Th&#7843;o Lu&#7853;n S&aacute;ch">A Book Review Session</p>
+              <h1 class="cover-title">The Phoenix<br>Project</h1>
+              <div class="cover-rule"></div>
+              <p class="cover-subtitle" data-en="A Novel About IT, DevOps,&lt;br&gt;and Helping Your Business Win" data-vi="Ti&#7875;u Thuy&#7871;t V&#7873; CNTT, DevOps,&lt;br&gt;v&agrave; Gi&uacute;p Doanh Nghi&#7879;p Chi&#7871;n Th&#7855;ng">A Novel About IT, DevOps,<br>and Helping Your Business Win</p>
+              <p class="cover-authors">Gene Kim &middot; Kevin Behr &middot; George Spafford</p>
+              <p class="cover-year">&middot; 2013 &middot;</p>
+              <p class="cover-hint" data-en="Click to begin reading &rarr;" data-vi="Nh&#7845;n &#273;&#7875; b&#7855;t &#273;&#7847;u &#273;&#7885;c &rarr;">Click to begin reading &rarr;</p>
+            </div>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="dedication">
+            <p class="ded-ornament">&#9753; &#9753; &#9753;</p>
+            <p class="ded-label" data-en="Book Review" data-vi="Nh&#7853;n X&eacute;t S&aacute;ch">Book Review</p>
+            <h2 class="ded-title">The Phoenix Project</h2>
+            <p class="ded-subtitle" data-en="A Novel About IT, DevOps, and Helping Your Business Win" data-vi="Ti&#7875;u Thuy&#7871;t V&#7873; CNTT, DevOps v&agrave; Gi&uacute;p Doanh Nghi&#7879;p Chi&#7871;n Th&#7855;ng">A Novel About IT, DevOps, and Helping Your Business Win</p>
+            <div class="ded-rule"></div>
+            <p class="ded-text" data-en="First published in 2013, this novel follows Bill Palmer as he navigates the chaos of Parts Unlimited's failing IT department. Written in the tradition of &lt;em&gt;The Goal&lt;/em&gt; by Eliyahu Goldratt." data-vi="Xu&#7845;t b&#7843;n l&#7847;n &#273;&#7847;u n&#259;m 2013, cu&#7889;n ti&#7875;u thuy&#7871;t theo ch&acirc;n Bill Palmer khi anh &#273;i&#7873;u h&#432;&#7899;ng qua s&#7921; h&#7895;n lo&#7841;n c&#7911;a b&#7897; ph&#7853;n CNTT &#273;ang s&#7909;p &#273;&#7893; c&#7911;a Parts Unlimited. Vi&#7871;t theo phong c&aacute;ch c&#7911;a &lt;em&gt;The Goal&lt;/em&gt; b&#7903;i Eliyahu Goldratt.">First published in 2013, this novel follows Bill Palmer as he navigates the chaos of Parts Unlimited's failing IT department. Written in the tradition of <em>The Goal</em> by Eliyahu Goldratt.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 1 — INTRODUCTION ====== -->
+      <div class="leaf" id="leaf-1">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter I" data-vi="Ch&#432;&#417;ng I">Chapter I</span>
+            <h2 class="chapter-title" data-en="Introduction" data-vi="Gi&#7899;i Thi&#7879;u">Introduction</h2>
+            <div class="chapter-rule"></div>
+
+            <p class="body-text drop-cap"
+               data-en="The Phoenix Project, by Gene Kim, Kevin Behr, and George Spafford, is a novel about DevOps and the pain points IT departments face in real-world operations."
+               data-vi="The Phoenix Project, b&#7903;i Gene Kim, Kevin Behr v&agrave; George Spafford, l&agrave; cu&#7889;n ti&#7875;u thuy&#7871;t v&#7873; DevOps v&agrave; nh&#7919;ng &#273;i&#7875;m &#273;au m&agrave; b&#7897; ph&#7853;n CNTT ph&#7843;i &#273;&#7889;i m&#7863;t trong v&#7853;n h&agrave;nh th&#7921;c t&#7871;.">The Phoenix Project, by Gene Kim, Kevin Behr, and George Spafford, is a novel about DevOps and the pain points IT departments face in real-world operations.</p>
+
+            <p class="body-text"
+               data-en="&lt;strong&gt;Core message:&lt;/strong&gt; IT management works like a manufacturing line. People see manufacturing as repetitive and IT as creative &mdash; but the underlying principles are the same."
+               data-vi="&lt;strong&gt;Th&ocirc;ng &#273;i&#7879;p c&#7889;t l&otilde;i:&lt;/strong&gt; Qu&#7843;n l&yacute; CNTT ho&#7841;t &#273;&#7897;ng nh&#432; m&#7897;t d&acirc;y chuy&#7873;n s&#7843;n xu&#7845;t. Ng&#432;&#7901;i ta ngh&#297; s&#7843;n xu&#7845;t l&agrave; l&#7863;p &#273;i l&#7863;p l&#7841;i c&ograve;n CNTT l&agrave; s&aacute;ng t&#7841;o &mdash; nh&#432;ng nguy&ecirc;n l&yacute; th&igrave; gi&#7889;ng nhau."><strong>Core message:</strong> IT management works like a manufacturing line. People see manufacturing as repetitive and IT as creative &mdash; but the underlying principles are the same.</p>
+
+            <!-- Animated Manufacturing Line -->
+            <div class="mfg-line">
+              <div class="mfg-track">
+                <div class="mfg-belt"></div>
+                <div class="mfg-items">
+                  <div class="mfg-item"></div>
+                  <div class="mfg-item"></div>
+                  <div class="mfg-item"></div>
+                  <div class="mfg-item"></div>
+                </div>
+
+                <div class="mfg-station">
+                  <div class="mfg-station-icon">&#9881;</div>
+                  <span class="mfg-station-label" data-en="Raw Material" data-vi="Nguy&ecirc;n li&#7879;u">Raw Material</span>
+                </div>
+                <span class="mfg-arrow">&#9654;</span>
+                <div class="mfg-station">
+                  <div class="mfg-station-icon">&#9874;</div>
+                  <span class="mfg-station-label" data-en="Build" data-vi="Gia c&ocirc;ng">Build</span>
+                </div>
+                <span class="mfg-arrow">&#9654;</span>
+                <div class="mfg-station">
+                  <div class="mfg-station-icon">&#9878;</div>
+                  <span class="mfg-station-label" data-en="Test" data-vi="Ki&#7875;m tra">Test</span>
+                </div>
+                <span class="mfg-arrow">&#9654;</span>
+                <div class="mfg-station">
+                  <div class="mfg-station-icon">&#9745;</div>
+                  <span class="mfg-station-label" data-en="Package" data-vi="&#272;&oacute;ng g&oacute;i">Package</span>
+                </div>
+                <span class="mfg-arrow">&#9654;</span>
+                <div class="mfg-station">
+                  <div class="mfg-station-icon">&#9733;</div>
+                  <span class="mfg-station-label" data-en="Deliver" data-vi="Giao h&agrave;ng">Deliver</span>
+                </div>
+              </div>
+
+              <!-- IT equivalence row -->
+              <div class="mfg-mapping">
+                <div class="mfg-map-item">
+                  <span class="mfg-map-icon">&#8595;</span>
+                  <span class="mfg-map-label" data-en="Backlog" data-vi="Backlog">Backlog</span>
+                </div>
+                <div class="mfg-map-item">
+                  <span class="mfg-map-icon">&#8595;</span>
+                  <span class="mfg-map-label" data-en="Dev" data-vi="Dev">Dev</span>
+                </div>
+                <div class="mfg-map-item">
+                  <span class="mfg-map-icon">&#8595;</span>
+                  <span class="mfg-map-label" data-en="QA" data-vi="QA">QA</span>
+                </div>
+                <div class="mfg-map-item">
+                  <span class="mfg-map-icon">&#8595;</span>
+                  <span class="mfg-map-label" data-en="Deploy" data-vi="Deploy">Deploy</span>
+                </div>
+                <div class="mfg-map-item">
+                  <span class="mfg-map-icon">&#8595;</span>
+                  <span class="mfg-map-label" data-en="Customer" data-vi="Kh&aacute;ch h&agrave;ng">Customer</span>
+                </div>
+              </div>
+            </div>
+
+            <blockquote class="page-quote"
+               data-en="Every position has its own unique experiences, difficulties, and challenges."
+               data-vi="M&#7895;i v&#7883; tr&iacute; &#273;&#7873;u c&oacute; nh&#7919;ng tr&#7843;i nghi&#7879;m ri&ecirc;ng v&agrave; nh&#7919;ng kh&oacute; kh&#259;n, th&aacute;ch th&#7913;c ri&ecirc;ng.">Every position has its own unique experiences, difficulties, and challenges.</blockquote>
+
+            <span class="page-num">1</span>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter II" data-vi="Ch&#432;&#417;ng II">Chapter II</span>
+            <h2 class="chapter-title" data-en="The Story" data-vi="C&acirc;u Chuy&#7879;n">The Story</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Animated story timeline with walking Bill -->
+            <div class="story-road">
+              <!-- Running Bill Palmer (SVG man with briefcase) -->
+              <div class="bill-walker">
+                <svg class="bill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Head -->
+                  <circle cx="12" cy="3.5" r="2.2"/>
+                  <!-- Body running pose -->
+                  <path d="M12 5.7 L12 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  <!-- Left arm (back, holding briefcase) -->
+                  <path d="M12 7.5 L8.5 10.5 L7 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+                  <!-- Right arm (forward) -->
+                  <path d="M12 7.5 L15.5 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+                  <!-- Left leg (back, extended) -->
+                  <path d="M12 11.5 L9 15 L7.5 18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+                  <!-- Right leg (forward, bent) -->
+                  <path d="M12 11.5 L15 14.5 L14 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+                  <!-- Briefcase -->
+                  <rect x="5.5" y="9.2" width="3" height="2.2" rx="0.4" fill="currentColor" opacity="0.6"/>
+                  <!-- Tie / detail -->
+                  <line x1="12" y1="6" x2="12.3" y2="8" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+                </svg>
+                <span class="bill-label">Bill Palmer</span>
+              </div>
+
+              <!-- Footprints trail -->
+              <div class="bill-trail">
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+                <div class="footprint"></div>
+              </div>
+
+              <!-- Road / path -->
+              <div class="road-path"></div>
+
+              <!-- Story stops along the road -->
+              <div class="road-stop road-stop-1">
+                <div class="stop-marker stop-marker-blue">
+                  <span class="stop-icon">&#9650;</span>
+                </div>
+                <div class="stop-flag">
+                  <span class="stop-phase" data-en="Beginning" data-vi="Kh&#7903;i &#273;&#7847;u">Beginning</span>
+                  <span class="stop-title" data-en="Promoted to VP" data-vi="Th&#259;ng ch&#7913;c VP">Promoted to VP</span>
+                  <p class="stop-desc" data-en="Mid-level manager &rarr; VP of IT Ops at Parts Unlimited, a $4B company in decline." data-vi="Qu&#7843;n l&yacute; c&#7845;p trung &rarr; VP V&#7853;n h&agrave;nh CNTT t&#7841;i Parts Unlimited, c&ocirc;ng ty $4B &#273;ang suy gi&#7843;m.">Mid-level manager &rarr; VP of IT Ops at Parts Unlimited, a $4B company in decline.</p>
+                </div>
+              </div>
+
+              <div class="road-stop road-stop-2">
+                <div class="stop-marker stop-marker-red">
+                  <span class="stop-icon">&#9888;</span>
+                </div>
+                <div class="stop-flag">
+                  <span class="stop-phase" data-en="Crisis" data-vi="Kh&#7911;ng ho&#7843;ng">Crisis</span>
+                  <span class="stop-title" data-en="Company in Trouble" data-vi="C&ocirc;ng ty kh&#7911;ng ho&#7843;ng">Company in Trouble</span>
+                  <p class="stop-desc" data-en="Late deliveries, lost trust from investors &amp; board. 4,000 jobs at risk of bankruptcy." data-vi="Giao h&agrave;ng tr&#7877;, m&#7845;t ni&#7873;m tin t&#7915; nh&agrave; &#273;&#7847;u t&#432;. 4.000 vi&#7879;c l&agrave;m b&#7883; &#273;e d&#7885;a.">Late deliveries, lost trust from investors &amp; board. 4,000 jobs at risk of bankruptcy.</p>
+                </div>
+              </div>
+
+              <div class="road-stop road-stop-3">
+                <div class="stop-marker stop-marker-gold">
+                  <span class="stop-icon">&#9733;</span>
+                </div>
+                <div class="stop-flag">
+                  <span class="stop-phase" data-en="Hope" data-vi="Hy v&#7885;ng">Hope</span>
+                  <span class="stop-title" data-en="Phoenix Project" data-vi="D&#7921; &aacute;n Phoenix">Phoenix Project</span>
+                  <p class="stop-desc" data-en="A pan-European sales website &mdash; the company&rsquo;s last hope. Falls into crisis after Bill takes over." data-vi="Website b&aacute;n h&agrave;ng to&agrave;n ch&acirc;u &Acirc;u &mdash; hy v&#7885;ng cu&#7889;i c&ugrave;ng. R&#417;i v&agrave;o kh&#7911;ng ho&#7843;ng sau khi Bill nh&#7853;m ch&#7913;c.">A pan-European sales website &mdash; the company&rsquo;s last hope. Falls into crisis after Bill takes over.</p>
+                </div>
+              </div>
+
+              <div class="road-stop road-stop-4">
+                <div class="stop-marker stop-marker-green">
+                  <span class="stop-icon">&#10003;</span>
+                </div>
+                <div class="stop-flag">
+                  <span class="stop-phase" data-en="Resolution" data-vi="Gi&#7843;i quy&#7871;t">Resolution</span>
+                  <span class="stop-title" data-en="Transformation" data-vi="Chuy&#7875;n &#273;&#7893;i">Transformation</span>
+                  <p class="stop-desc" data-en="Bill applies manufacturing principles to IT &mdash; flow, feedback, learning &mdash; and saves the company." data-vi="Bill &aacute;p d&#7909;ng nguy&ecirc;n l&yacute; s&#7843;n xu&#7845;t v&agrave;o CNTT &mdash; l&#432;u l&#432;&#7907;ng, ph&#7843;n h&#7891;i, h&#7885;c h&#7887;i &mdash; v&agrave; c&#7913;u c&ocirc;ng ty.">Bill applies manufacturing principles to IT &mdash; flow, feedback, learning &mdash; and saves the company.</p>
+                </div>
+              </div>
+            </div>
+
+            <span class="page-num">2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 2 — CHARACTERS ====== -->
+      <div class="leaf" id="leaf-2">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter III" data-vi="Ch&#432;&#417;ng III">Chapter III</span>
+            <h2 class="chapter-title" data-en="Main Characters" data-vi="Nh&acirc;n V&#7853;t Ch&iacute;nh">Main Characters</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Org Chart Tree Diagram -->
+            <div class="org-chart">
+
+              <!-- Level 1: CEO -->
+              <div class="org-level org-level-1">
+                <div class="org-node org-node-ceo">
+                  <div class="org-avatar org-avatar-gold">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Steve Masters</span>
+                  <span class="org-role" data-en="CEO / Acting CIO" data-vi="CEO / CIO l&acirc;m th&#7901;i">CEO / Acting CIO</span>
+                </div>
+              </div>
+
+              <!-- Connector: 1 to many -->
+              <div class="org-connector org-conn-1">
+                <div class="org-vline"></div>
+                <div class="org-hline"></div>
+                <div class="org-drops">
+                  <div class="org-drop"></div>
+                  <div class="org-drop"></div>
+                  <div class="org-drop"></div>
+                  <div class="org-drop"></div>
+                  <div class="org-drop"></div>
+                </div>
+              </div>
+
+              <!-- Level 2: VPs -->
+              <div class="org-level org-level-2">
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-gray">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Dick Landry</span>
+                  <span class="org-role">CFO</span>
+                </div>
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-blue">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">John Pesche</span>
+                  <span class="org-role" data-en="CISO" data-vi="CISO">CISO</span>
+                </div>
+                <div class="org-node org-node-highlight">
+                  <div class="org-avatar org-avatar-green">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Bill Palmer</span>
+                  <span class="org-role" data-en="VP, IT Operations" data-vi="VP, V&#7853;n h&agrave;nh CNTT">VP, IT Operations</span>
+                </div>
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-gray">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Chris Allers</span>
+                  <span class="org-role" data-en="VP, App Dev" data-vi="VP, Ph&aacute;t tri&#7875;n">VP, App Dev</span>
+                </div>
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-pink">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Sarah Moulton</span>
+                  <span class="org-role" data-en="SVP, Retail Ops" data-vi="SVP, V&#7853;n h&agrave;nh B&aacute;n l&#7867;">SVP, Retail Ops</span>
+                </div>
+              </div>
+
+              <!-- Connector: Bill to sub-reports -->
+              <div class="org-connector org-conn-2">
+                <div class="org-vline"></div>
+                <div class="org-hline org-hline-narrow"></div>
+                <div class="org-drops org-drops-2">
+                  <div class="org-drop"></div>
+                  <div class="org-drop"></div>
+                </div>
+              </div>
+
+              <!-- Level 3: Directors under Bill -->
+              <div class="org-level org-level-3">
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-tan">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Wes Davis</span>
+                  <span class="org-role" data-en="Dir, Distributed Tech Ops" data-vi="G&#272;, V&#7853;n h&agrave;nh CN">Dir, Distributed Tech Ops</span>
+                </div>
+                <div class="org-node">
+                  <div class="org-avatar org-avatar-lilac">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Patty McKee</span>
+                  <span class="org-role" data-en="Dir, IT Service Support" data-vi="G&#272;, H&#7895; tr&#7907; CNTT">Dir, IT Service Support</span>
+                </div>
+              </div>
+
+              <!-- Connector: Wes to Brent -->
+              <div class="org-connector org-conn-3">
+                <div class="org-vline"></div>
+              </div>
+
+              <!-- Level 4: Brent -->
+              <div class="org-level org-level-4">
+                <div class="org-node org-node-bottleneck">
+                  <div class="org-avatar org-avatar-dark">
+                    <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="currentColor"/><ellipse cx="20" cy="35" rx="12" ry="10" fill="currentColor"/></svg>
+                  </div>
+                  <span class="org-name">Brent</span>
+                  <span class="org-role" data-en="Lead Engineer" data-vi="K&#7929; s&#432; tr&#432;&#7903;ng">Lead Engineer</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Animated meeting scene -->
+            <div class="meeting-scene">
+              <!-- Person 1 - walks in from left -->
+              <div class="meeting-person mp-1">
+                <div class="speech-bubble sb-1" data-en="We need to ship Phoenix!" data-vi="Ph&#7843;i ship Phoenix!">We need to ship Phoenix!</div>
+                <svg class="mp-icon" viewBox="0 0 24 28"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+              <!-- Person 2 - walks in from right -->
+              <div class="meeting-person mp-2">
+                <div class="speech-bubble sb-2" data-en="Security first!" data-vi="An ninh tr&#432;&#7899;c!">Security first!</div>
+                <svg class="mp-icon" viewBox="0 0 24 28"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+              <!-- Person 3 - walks in from left -->
+              <div class="meeting-person mp-3">
+                <div class="speech-bubble sb-3" data-en="Budget?" data-vi="Ng&acirc;n s&aacute;ch?">Budget?</div>
+                <svg class="mp-icon" viewBox="0 0 24 28"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+              <!-- Person 4 (Bill) - center, already there -->
+              <div class="meeting-person mp-4">
+                <div class="speech-bubble sb-4" data-en="Let&rsquo;s align." data-vi="H&atilde;y th&#7889;ng nh&#7845;t.">Let&rsquo;s align.</div>
+                <svg class="mp-icon" viewBox="0 0 24 28"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+              <!-- Person 5 - walks in from right -->
+              <div class="meeting-person mp-5">
+                <div class="speech-bubble sb-5" data-en="Only Brent knows..." data-vi="Ch&#7881; Brent bi&#7871;t...">Only Brent knows...</div>
+                <svg class="mp-icon" viewBox="0 0 24 28"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+              <!-- Table / meeting point -->
+              <div class="meeting-table"></div>
+            </div>
+
+            <span class="page-num">3</span>
+          </div>
+        </div>
+        <!-- Page 4: Bill Palmer & Steve Masters — people with bubbles -->
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Voices I" data-vi="Ti&#7871;ng n&oacute;i I">Voices I</span>
+            <h2 class="chapter-title" data-en="Leadership" data-vi="L&atilde;nh &#273;&#7841;o">Leadership</h2>
+            <div class="chapter-rule"></div>
+
+            <div class="quote-scene">
+              <!-- Bill group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-green">
+                  <p class="qs-bubble-text" data-en="Situations like this only reinforce my deep suspicion of developers: They&rsquo;re often carelessly breaking things and then disappearing, leaving Operations to clean up the mess." data-vi="Nh&#7919;ng t&igrave;nh hu&#7889;ng th&#7871; n&agrave;y ch&#7881; c&#7911;ng c&#7889; s&#7921; nghi ng&#7901; c&#7911;a t&ocirc;i v&#7873; l&#7853;p tr&igrave;nh vi&ecirc;n: H&#7885; b&#7845;t c&#7849;n l&agrave;m h&#7887;ng m&#7885;i th&#7913; r&#7891;i bi&#7871;n m&#7845;t, &#273;&#7875; V&#7853;n h&agrave;nh d&#7885;n d&#7865;p.">Situations like this only reinforce my deep suspicion of developers: They&rsquo;re often carelessly breaking things and then disappearing, leaving Operations to clean up the mess.</p>
+                </div>
+                <div class="qs-person qs-p1 qs-clr-green">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Bill Palmer</span>
+                  <span class="qs-person-role" data-en="VP, IT Operations" data-vi="VP, V&#7853;n h&agrave;nh CNTT">VP, IT Operations</span>
+                </div>
+              </div>
+
+              <!-- Steve group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-gold">
+                  <p class="qs-bubble-text" data-en="What&rsquo;s at stake here is not just my job, but the nearly four thousand employees who work here at Parts Unlimited." data-vi="&#272;i&#7873;u &#273;ang b&#7883; &#273;e d&#7885;a kh&ocirc;ng ch&#7881; l&agrave; c&ocirc;ng vi&#7879;c c&#7911;a t&ocirc;i, m&agrave; l&agrave; g&#7847;n 4.000 nh&acirc;n vi&ecirc;n t&#7841;i Parts Unlimited.">What&rsquo;s at stake here is not just my job, but the nearly four thousand employees who work here at Parts Unlimited.</p>
+                </div>
+                <div class="qs-bubble qs-bubble-gold">
+                  <p class="qs-bubble-text" data-en="I&rsquo;m tired of your Chicken Little routine. I need you to come to me with some actual solutions." data-vi="T&ocirc;i ch&aacute;n ki&#7875;u la l&agrave;ng tr&#7901;i s&#7855;p s&#7853;p. T&ocirc;i c&#7847;n gi&#7843;i ph&aacute;p th&#7921;c s&#7921;.">I&rsquo;m tired of your Chicken Little routine. I need you to come to me with some actual solutions.</p>
+                </div>
+                <div class="qs-bubble qs-bubble-gold">
+                  <p class="qs-bubble-text" data-en="IT should be like using the toilet &mdash; I don&rsquo;t ever worry about it not working." data-vi="CNTT ph&#7843;i nh&#432; d&ugrave;ng toilet &mdash; ch&#432;a bao gi&#7901; lo n&oacute; h&#7887;ng.">IT should be like using the toilet &mdash; I don&rsquo;t ever worry about it not working.</p>
+                </div>
+                <div class="qs-person qs-p2 qs-clr-gold">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Steve Masters</span>
+                  <span class="qs-person-role">CEO</span>
+                </div>
+              </div>
+            </div>
+
+            <span class="page-num">4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 2B — QUOTES: TECH VOICES ====== -->
+      <div class="leaf" id="leaf-2b">
+        <!-- Page 5: Brent & Chris Adler -->
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Voices II" data-vi="Ti&#7871;ng n&oacute;i II">Voices II</span>
+            <h2 class="chapter-title" data-en="The Engineers" data-vi="K&#7929; S&#432;">The Engineers</h2>
+            <div class="chapter-rule"></div>
+
+            <div class="quote-scene">
+              <!-- Brent group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-red">
+                  <p class="qs-bubble-text" data-en="&lt;em&gt;(Bill on Brent)&lt;/em&gt; He&rsquo;s a smart guy but can be intimidating because of how much he knows. He&rsquo;s right most of the time." data-vi="&lt;em&gt;(Bill v&#7873; Brent)&lt;/em&gt; Anh &#7845;y th&ocirc;ng minh nh&#432;ng khi&#7871;n ng&#432;&#7901;i kh&aacute;c e ng&#7841;i v&igrave; ki&#7871;n th&#7913;c qu&aacute; r&#7897;ng. Anh &#7845;y &#273;&uacute;ng h&#7847;u h&#7871;t."><em>(Bill on Brent)</em> He&rsquo;s a smart guy but can be intimidating because of how much he knows. He&rsquo;s right most of the time.</p>
+                </div>
+                <div class="qs-bubble qs-bubble-red">
+                  <p class="qs-bubble-text" data-en="&lt;em&gt;(Bill to Wes)&lt;/em&gt; Oh, come on. Brent. Brent, Brent, Brent! Can&rsquo;t we do anything without him?" data-vi="&lt;em&gt;(Bill n&oacute;i v&#7899;i Wes)&lt;/em&gt; Brent, Brent, Brent! Kh&ocirc;ng l&agrave;m g&igrave; &#273;&#432;&#7907;c n&#7871;u thi&#7871;u anh ta sao?"><em>(Bill to Wes)</em> Oh, come on. Brent. Brent, Brent, Brent! Can&rsquo;t we do anything without him?</p>
+                </div>
+                <div class="qs-person qs-p1 qs-clr-red">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Brent</span>
+                  <span class="qs-person-role" data-en="Lead Engineer" data-vi="K&#7929; s&#432; tr&#432;&#7903;ng">Lead Engineer</span>
+                </div>
+              </div>
+
+              <!-- Chris group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-gray">
+                  <p class="qs-bubble-text" data-en="It&rsquo;s crazy what programmers have to learn every couple of years &mdash; new databases, new methods, new delivery models like cloud." data-vi="&#272;i&ecirc;n r&#7891; khi l&#7853;p tr&igrave;nh vi&ecirc;n ph&#7843;i h&#7885;c th&#7913; m&#7899;i m&#7895;i v&agrave;i n&#259;m &mdash; CSDL m&#7899;i, ph&#432;&#417;ng ph&aacute;p m&#7899;i, m&ocirc; h&igrave;nh m&#7899;i nh&#432; cloud.">It&rsquo;s crazy what programmers have to learn every couple of years &mdash; new databases, new methods, new delivery models like cloud.</p>
+                </div>
+                <div class="qs-bubble qs-bubble-gray">
+                  <p class="qs-bubble-text" data-en="They read in an airline magazine they can manage their supply chain in the cloud for $499/year, and suddenly that&rsquo;s the main company initiative." data-vi="H&#7885; &#273;&#7885;c t&#7841;p ch&iacute; m&aacute;y bay r&#7857;ng qu&#7843;n l&yacute; chu&#7895;i cung &#7913;ng cloud $499/n&#259;m, v&agrave; &#273;&oacute; l&agrave; s&aacute;ng ki&#7871;n ch&iacute;nh.">They read in an airline magazine they can manage their supply chain in the cloud for $499/year, and suddenly that&rsquo;s the main company initiative.</p>
+                </div>
+                <div class="qs-person qs-p2 qs-clr-gray">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Chris Adler</span>
+                  <span class="qs-person-role" data-en="VP, App Dev" data-vi="VP, Ph&aacute;t tri&#7875;n">VP, App Dev</span>
+                </div>
+              </div>
+            </div>
+
+            <span class="page-num">5</span>
+          </div>
+        </div>
+
+        <!-- Page 6: Dick, Sarah, John, Erik — 4 people scene -->
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Voices III" data-vi="Ti&#7871;ng n&oacute;i III">Voices III</span>
+            <h2 class="chapter-title" data-en="Other Perspectives" data-vi="G&oacute;c Nh&igrave;n Kh&aacute;c">Other Perspectives</h2>
+            <div class="chapter-rule"></div>
+
+            <div class="quote-scene quote-scene-compact">
+              <!-- Dick group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-gray">
+                  <p class="qs-bubble-text" data-en="My title doesn&rsquo;t have &lsquo;operations&rsquo; in it, but it&rsquo;s the part I love most." data-vi="Ch&#7913;c danh kh&ocirc;ng c&oacute; ch&#7919; v&#7853;n h&agrave;nh, nh&#432;ng &#273;&oacute; l&agrave; ph&#7847;n t&ocirc;i th&iacute;ch nh&#7845;t.">My title doesn&rsquo;t have &lsquo;operations&rsquo; in it, but it&rsquo;s the part I love most.</p>
+                </div>
+                <div class="qs-person qs-p1 qs-clr-gray">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Dick Landry</span>
+                  <span class="qs-person-role">CFO</span>
+                </div>
+              </div>
+
+              <!-- Sarah group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-pink">
+                  <p class="qs-bubble-text" data-en="Perfection is the enemy of getting things done well." data-vi="S&#7921; ho&agrave;n h&#7843;o l&agrave; k&#7867; th&ugrave; c&#7911;a vi&#7879;c ho&agrave;n th&agrave;nh t&#7889;t c&ocirc;ng vi&#7879;c.">Perfection is the enemy of getting things done well.</p>
+                </div>
+                <div class="qs-person qs-p2 qs-clr-pink">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Sarah</span>
+                  <span class="qs-person-role" data-en="SVP, Retail" data-vi="SVP, B&aacute;n l&#7867;">SVP, Retail</span>
+                </div>
+              </div>
+
+              <!-- John group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-blue">
+                  <p class="qs-bubble-text" data-en="Everyone looks down on me. But I want to help catch the bad guys and protect the org." data-vi="M&#7885;i ng&#432;&#7901;i khinh th&#432;&#7901;ng t&ocirc;i. Nh&#432;ng t&ocirc;i mu&#7889;n gi&uacute;p b&#7855;t k&#7867; x&#7845;u v&agrave; b&#7843;o v&#7879; t&#7893; ch&#7913;c.">Everyone looks down on me. But I want to help catch the bad guys and protect the org.</p>
+                </div>
+                <div class="qs-person qs-p3 qs-clr-blue">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">John Pesche</span>
+                  <span class="qs-person-role">CISO</span>
+                </div>
+              </div>
+
+              <!-- Erik group -->
+              <div class="qs-char">
+                <div class="qs-bubble qs-bubble-tan">
+                  <p class="qs-bubble-text" data-en="If you think IT Ops has nothing to learn from Plant Ops, you&rsquo;re wrong. Dead wrong." data-vi="Ngh&#297; V&#7853;n h&agrave;nh CNTT kh&ocirc;ng h&#7885;c &#273;&#432;&#7907;c g&igrave; t&#7915; Nh&agrave; m&aacute;y? Sai ho&agrave;n to&agrave;n.">If you think IT Ops has nothing to learn from Plant Ops, you&rsquo;re wrong. Dead wrong.</p>
+                </div>
+                <div class="qs-person qs-p4 qs-clr-tan">
+                  <svg class="qs-person-icon" viewBox="0 0 34 48"><circle cx="17" cy="8" r="6.5" fill="currentColor"/><path d="M17 15 C8 15 5 22 5 28 L5 34 C5 36 7 38 9 38 L25 38 C27 38 29 36 29 34 L29 28 C29 22 26 15 17 15Z" fill="currentColor"/><rect x="9" y="38" width="5" height="8" rx="2" fill="currentColor"/><rect x="20" y="38" width="5" height="8" rx="2" fill="currentColor"/></svg>
+                  <span class="qs-person-name">Erik Reid</span>
+                  <span class="qs-person-role" data-en="Mentor" data-vi="C&#7889; v&#7845;n">Mentor</span>
+                </div>
+              </div>
+            </div>
+
+            <span class="page-num">6</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 3 — TECHNICAL DEBT ====== -->
+      <div class="leaf" id="leaf-3">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter IV &mdash; Problem 1" data-vi="Ch&#432;&#417;ng IV &mdash; V&#7845;n &#273;&#7873; 1">Chapter IV &mdash; Problem 1</span>
+            <h2 class="chapter-title" data-en="Technical Debt" data-vi="N&#7907; C&ocirc;ng Ngh&#7879;">Technical Debt</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Animated: Dev → Ops bug cycle -->
+            <div class="debt-anim">
+              <div class="debt-station debt-dev">
+                <span class="debt-station-icon">&#128187;</span>
+                DEV
+              </div>
+              <div class="debt-arrows">
+                <div class="debt-path-fwd"></div>
+                <div class="debt-code"></div>
+                <span class="debt-label-fwd" data-en="deploy code" data-vi="tri&#7875;n khai code">deploy code</span>
+                <div class="debt-path-back"></div>
+                <div class="debt-bug"></div>
+                <span class="debt-label-back" data-en="bug found!" data-vi="ph&aacute;t hi&#7879;n l&#7895;i!">bug found!</span>
+              </div>
+              <div class="debt-station debt-ops">
+                <span class="debt-station-icon">&#9881;</span>
+                OPS
+              </div>
+              <span class="debt-cycle-label" data-en="&#8634; vicious cycle &mdash; technical debt accruing" data-vi="&#8634; v&ograve;ng lu&#7849;n qu&#7849;n &mdash; n&#7907; c&ocirc;ng ngh&#7879; t&iacute;ch t&#7909;">&#8634; vicious cycle &mdash; technical debt accruing</span>
+            </div>
+
+            <div class="problem-card">
+              <span class="card-label" data-en="Problem" data-vi="V&#7845;n &#273;&#7873;">Problem</span>
+              <p class="card-text" data-en="Dev left behind debts that limited future choices. Ops found bugs, pinged back to Dev, Dev spent huge time fixing &mdash; a vicious cycle." data-vi="Dev &#273;&#7875; l&#7841;i n&#7907; c&ocirc;ng ngh&#7879; gi&#7899;i h&#7841;n l&#7921;a ch&#7885;n t&#432;&#417;ng lai. Ops ph&aacute;t hi&#7879;n l&#7895;i, ping l&#7841;i Dev, Dev t&#7889;n nhi&#7873;u th&#7901;i gian s&#7917;a &mdash; v&ograve;ng lu&#7849;n qu&#7849;n.">Dev left behind debts that limited future choices. Ops found bugs, pinged back to Dev, Dev spent huge time fixing &mdash; a vicious cycle.</p>
+            </div>
+
+            <div class="solution-card">
+              <span class="card-label" data-en="Solution" data-vi="Gi&#7843;i ph&aacute;p">Solution</span>
+              <p class="card-text" data-en="Set up a &lt;strong&gt;CI/CD pipeline&lt;/strong&gt; to automate deployment and reduce the feedback loop. Like Toyota&rsquo;s SMED &mdash; reducing die changes from 3 days to &lt;em&gt;1 minute&lt;/em&gt;." data-vi="Thi&#7871;t l&#7853;p &lt;strong&gt;CI/CD pipeline&lt;/strong&gt; &#273;&#7875; t&#7921; &#273;&#7897;ng h&oacute;a tri&#7875;n khai v&agrave; gi&#7843;m v&ograve;ng ph&#7843;n h&#7891;i. Nh&#432; SMED c&#7911;a Toyota &mdash; gi&#7843;m thay khu&ocirc;n t&#7915; 3 ng&agrave;y xu&#7889;ng &lt;em&gt;1 ph&uacute;t&lt;/em&gt;.">Set up a <strong>CI/CD pipeline</strong> to automate deployment and reduce the feedback loop. Like Toyota&rsquo;s SMED &mdash; reducing die changes from 3 days to <em>1 minute</em>.</p>
+            </div>
+
+            <span class="page-num">7</span>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter IV &mdash; Problem 2" data-vi="Ch&#432;&#417;ng IV &mdash; V&#7845;n &#273;&#7873; 2">Chapter IV &mdash; Problem 2</span>
+            <h2 class="chapter-title" data-en="Work in Progress (WIP)" data-vi="C&ocirc;ng Vi&#7879;c Dang D&#7903; (WIP)">Work in Progress (WIP)</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Animated: Kanban board overflowing -->
+            <div class="wip-anim">
+              <span class="wip-counter" data-en="WIP: 117" data-vi="WIP: 117">WIP: 117</span>
+              <div class="wip-col wip-col-todo">
+                <span class="wip-col-label" data-en="To Do" data-vi="C&#7847;n l&agrave;m">To Do</span>
+                <div class="wip-col-stack">
+                  <div class="wip-task wip-task-biz"></div>
+                  <div class="wip-task wip-task-unp"></div>
+                  <div class="wip-task wip-task-int"></div>
+                  <div class="wip-task wip-task-biz"></div>
+                  <div class="wip-task wip-task-unp"></div>
+                  <div class="wip-task wip-task-chg"></div>
+                  <div class="wip-task wip-task-biz"></div>
+                  <div class="wip-task wip-task-unp"></div>
+                </div>
+              </div>
+              <div class="wip-col wip-col-doing">
+                <span class="wip-col-label" data-en="In Progress" data-vi="&#272;ang l&agrave;m">In Progress</span>
+                <div class="wip-col-stack">
+                  <div class="wip-task wip-task-chg"></div>
+                  <div class="wip-task wip-task-biz"></div>
+                  <div class="wip-task wip-task-int"></div>
+                  <div class="wip-task wip-task-unp"></div>
+                  <div class="wip-task wip-task-biz"></div>
+                </div>
+              </div>
+              <div class="wip-col wip-col-done">
+                <span class="wip-col-label" data-en="Done" data-vi="Xong">Done</span>
+                <div class="wip-col-stack">
+                  <div class="wip-task wip-task-chg"></div>
+                  <div class="wip-task wip-task-biz"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="problem-card">
+              <span class="card-label" data-en="Problem" data-vi="V&#7845;n &#273;&#7873;">Problem</span>
+              <p class="card-text" data-en="117 active projects, all marked &ldquo;urgent&rdquo;. New tasks keep arriving. WIP only grows &mdash; nothing finishes." data-vi="117 d&#7921; &aacute;n, t&#7845;t c&#7843; &#273;&#7873;u &ldquo;urgent&rdquo;. Task m&#7899;i li&ecirc;n t&#7909;c &#273;&#7871;n. WIP ch&#7881; t&#259;ng &mdash; kh&ocirc;ng g&igrave; ho&agrave;n th&agrave;nh.">117 active projects, all marked &ldquo;urgent&rdquo;. New tasks keep arriving. WIP only grows &mdash; nothing finishes.</p>
+            </div>
+
+            <div class="solution-card">
+              <span class="card-label" data-en="Solution" data-vi="Gi&#7843;i ph&aacute;p">Solution</span>
+              <p class="card-text" data-en="&lt;strong&gt;Categorize&lt;/strong&gt; into 4 types: &lt;span style='color:var(--blue-accent)'&gt;&#9632;&lt;/span&gt; Business &lt;span style='color:var(--gold-dim)'&gt;&#9632;&lt;/span&gt; Internal &lt;span style='color:var(--green-accent)'&gt;&#9632;&lt;/span&gt; Changes (highest) &lt;span style='color:var(--red-accent)'&gt;&#9632;&lt;/span&gt; Unplanned (avoid).&lt;br&gt;&lt;strong&gt;Limit WIP&lt;/strong&gt; &mdash; stop accepting new work, focus on what matters. WIP dropped, project succeeded."
+               data-vi="&lt;strong&gt;Ph&acirc;n lo&#7841;i&lt;/strong&gt; th&agrave;nh 4 nh&oacute;m: &lt;span style='color:var(--blue-accent)'&gt;&#9632;&lt;/span&gt; Kinh doanh &lt;span style='color:var(--gold-dim)'&gt;&#9632;&lt;/span&gt; N&#7897;i b&#7897; &lt;span style='color:var(--green-accent)'&gt;&#9632;&lt;/span&gt; Thay &#273;&#7893;i (cao nh&#7845;t) &lt;span style='color:var(--red-accent)'&gt;&#9632;&lt;/span&gt; Ngo&agrave;i KH (tr&aacute;nh).&lt;br&gt;&lt;strong&gt;Gi&#7899;i h&#7841;n WIP&lt;/strong&gt; &mdash; ng&#7915;ng nh&#7853;n vi&#7879;c m&#7899;i, t&#7853;p trung vi&#7879;c quan tr&#7885;ng. WIP gi&#7843;m, d&#7921; &aacute;n th&agrave;nh c&ocirc;ng."><strong>Categorize</strong> into 4 types: <span style='color:var(--blue-accent)'>&#9632;</span> Business <span style='color:var(--gold-dim)'>&#9632;</span> Internal <span style='color:var(--green-accent)'>&#9632;</span> Changes (highest) <span style='color:var(--red-accent)'>&#9632;</span> Unplanned (avoid).<br><strong>Limit WIP</strong> &mdash; stop accepting new work, focus on what matters. WIP dropped, project succeeded.</p>
+            </div>
+
+            <span class="page-num">8</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 4 — BOTTLENECK ====== -->
+      <div class="leaf" id="leaf-4">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter IV &mdash; Problem 3" data-vi="Ch&#432;&#417;ng IV &mdash; V&#7845;n &#273;&#7873; 3">Chapter IV &mdash; Problem 3</span>
+            <h2 class="chapter-title" data-en="Bottleneck" data-vi="T&#7855;c Ngh&#7869;n C&#7893; Chai">Bottleneck</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Animated: tasks pouring into a bottle, jamming at the neck -->
+            <div class="bneck-anim">
+              <div class="bneck-bottle-wrap">
+
+                <!-- Bottle SVG outline -->
+                <svg class="bneck-bottle-svg" viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Bottle body (wide) -->
+                  <path d="M95 15 L95 50 Q95 60 120 65 Q140 68 140 75 L140 105"
+                        stroke="var(--parchment-edge)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M205 15 L205 50 Q205 60 180 65 Q160 68 160 75 L160 105"
+                        stroke="var(--parchment-edge)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <!-- Bottle mouth (top rim) -->
+                  <line x1="90" y1="15" x2="210" y2="15" stroke="var(--parchment-edge)" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Fill: body area (light) -->
+                  <path d="M97 16 L97 50 Q97 59 121 64 Q140 67 141 74 L141 104 L159 104 L159 74 Q160 67 179 64 Q203 59 203 50 L203 16 Z"
+                        fill="rgba(139,58,58,0.06)"/>
+                  <!-- Neck highlight -->
+                  <rect x="138" y="68" width="24" height="12" rx="2" fill="rgba(139,58,58,0.12)" stroke="var(--red-accent)" stroke-width="1" stroke-dasharray="3 2"/>
+                </svg>
+
+                <!-- Falling task dots -->
+                <div class="bneck-dot-layer">
+                  <div class="bneck-dot bneck-dot-in-1"></div>
+                  <div class="bneck-dot bneck-dot-in-2"></div>
+                  <div class="bneck-dot bneck-dot-in-3"></div>
+                  <div class="bneck-dot bneck-dot-in-4"></div>
+                  <div class="bneck-dot bneck-dot-in-5"></div>
+                  <div class="bneck-dot bneck-dot-in-6"></div>
+                  <div class="bneck-dot bneck-dot-in-7"></div>
+                  <div class="bneck-dot bneck-dot-in-8"></div>
+                  <!-- Drips out the bottom -->
+                  <div class="bneck-drip"></div>
+                  <div class="bneck-drip"></div>
+                </div>
+
+                <!-- Labels -->
+                <span class="bneck-label-in" data-en="&#9660; tasks pouring in" data-vi="&#9660; task &#273;&#7893; v&agrave;o">&#9660; tasks pouring in</span>
+                <span class="bneck-brent-label">&#9888; Brent<br><span style="font-size:7px;font-weight:400;font-style:italic;" data-en="(jammed here)" data-vi="(t&#7855;c &#7903; &#273;&acirc;y)">(jammed here)</span></span>
+                <span class="bneck-label-out" data-en="slow drip &#9660;" data-vi="nh&#7887; gi&#7885;t &#9660;">slow drip &#9660;</span>
+
+              </div>
+            </div>
+
+            <div class="problem-card">
+              <span class="card-label" data-en="Problem" data-vi="V&#7845;n &#273;&#7873;">Problem</span>
+              <p class="card-text" data-en="Brent holds all core knowledge. Every workflow must pass through him. As tasks pile up, the bottleneck worsens." data-vi="Brent n&#7855;m gi&#7919; to&agrave;n b&#7897; ki&#7871;n th&#7913;c c&#7889;t l&otilde;i. M&#7885;i lu&#7891;ng c&ocirc;ng vi&#7879;c ph&#7843;i qua anh. C&agrave;ng nhi&#7873;u task, t&#7855;c ngh&#7869;n c&agrave;ng t&#7891;i t&#7879;.">Brent holds all core knowledge. Every workflow must pass through him. As tasks pile up, the bottleneck worsens.</p>
+            </div>
+
+            <div class="solution-card">
+              <span class="card-label" data-en="Solution" data-vi="Gi&#7843;i ph&aacute;p">Solution</span>
+              <p class="card-text" data-en="&lt;strong&gt;1.&lt;/strong&gt; Train more people &mdash; create more &ldquo;bottles&rdquo;.&lt;br&gt;&lt;strong&gt;2.&lt;/strong&gt; Shield Brent from low-priority work. Route unplanned tasks to non-bottleneck staff." data-vi="&lt;strong&gt;1.&lt;/strong&gt; &#272;&agrave;o t&#7841;o th&ecirc;m ng&#432;&#7901;i &mdash; t&#7841;o nhi&#7873;u &ldquo;chai&rdquo; h&#417;n.&lt;br&gt;&lt;strong&gt;2.&lt;/strong&gt; B&#7843;o v&#7879; Brent kh&#7887;i vi&#7879;c &#432;u ti&ecirc;n th&#7845;p. Giao vi&#7879;c ngo&agrave;i KH cho nh&acirc;n s&#7921; kh&aacute;c."><strong>1.</strong> Train more people &mdash; create more &ldquo;bottles&rdquo;.<br><strong>2.</strong> Shield Brent from low-priority work. Route unplanned tasks to non-bottleneck staff.</p>
+            </div>
+
+            <span class="page-num">9</span>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter IV &mdash; Problem 4" data-vi="Ch&#432;&#417;ng IV &mdash; V&#7845;n &#273;&#7873; 4">Chapter IV &mdash; Problem 4</span>
+            <h2 class="chapter-title" data-en="Communication" data-vi="Giao Ti&#7871;p">Communication</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Animated: Tug-of-war on the product -->
+            <div class="comm-anim">
+              <!-- Sales pulling left -->
+              <div class="comm-pull comm-pull-left">
+                <span class="comm-arrow">&#9664;</span>
+                <div class="comm-pull-rope"></div>
+                <span class="comm-pull-tag">Sales</span>
+              </div>
+
+              <!-- Finance pulling up -->
+              <div class="comm-pull comm-pull-top">
+                <span class="comm-arrow">&#9650;</span>
+                <div class="comm-pull-rope"></div>
+                <span class="comm-pull-tag">Finance</span>
+              </div>
+
+              <!-- Security pulling right -->
+              <div class="comm-pull comm-pull-right">
+                <span class="comm-pull-tag">Security</span>
+                <div class="comm-pull-rope"></div>
+                <span class="comm-arrow">&#9654;</span>
+              </div>
+
+              <!-- Product being torn apart -->
+              <div class="comm-product">&#128230;</div>
+              <span class="comm-crack" data-en="product breaking!" data-vi="s&#7843;n ph&#7849;m h&#7887;ng!">product breaking!</span>
+            </div>
+
+            <div class="problem-card">
+              <span class="card-label" data-en="Problem" data-vi="V&#7845;n &#273;&#7873;">Problem</span>
+              <p class="card-text" data-en="Sales wants speed. Security wants safety. Finance wants profit. Everyone pulls in a different direction &mdash; the product breaks." data-vi="Sales mu&#7889;n nhanh. Security mu&#7889;n an to&agrave;n. T&agrave;i ch&iacute;nh mu&#7889;n l&#7907;i nhu&#7853;n. M&#7895;i b&ecirc;n k&eacute;o m&#7897;t h&#432;&#7899;ng &mdash; s&#7843;n ph&#7849;m h&#7887;ng.">Sales wants speed. Security wants safety. Finance wants profit. Everyone pulls in a different direction &mdash; the product breaks.</p>
+            </div>
+
+            <div class="solution-card">
+              <span class="card-label" data-en="Solution" data-vi="Gi&#7843;i ph&aacute;p">Solution</span>
+              <p class="card-text" data-en="&lt;strong&gt;Communication is key&lt;/strong&gt; &mdash; everywhere and every time. Align on shared goals &lt;em&gt;before&lt;/em&gt; execution, not after." data-vi="&lt;strong&gt;Giao ti&#7871;p l&agrave; ch&igrave;a kh&oacute;a&lt;/strong&gt; &mdash; m&#7885;i l&uacute;c m&#7885;i n&#417;i. Th&#7889;ng nh&#7845;t m&#7909;c ti&ecirc;u chung &lt;em&gt;tr&#432;&#7899;c&lt;/em&gt; khi th&#7921;c hi&#7879;n, kh&ocirc;ng ph&#7843;i sau."><strong>Communication is key</strong> &mdash; everywhere and every time. Align on shared goals <em>before</em> execution, not after.</p>
+            </div>
+
+            <blockquote class="page-quote"
+               data-en="&lt;strong&gt;Manufacturing analogy:&lt;/strong&gt; In a factory, WIP = orders. Too many unfinished orders + new ones arriving = late deliveries. Stop new intake, clear the backlog, and orders ship on time."
+               data-vi="&lt;strong&gt;Li&ecirc;n h&#7879; s&#7843;n xu&#7845;t:&lt;/strong&gt; Trong nh&agrave; m&aacute;y, WIP = &#273;&#417;n h&agrave;ng. Qu&aacute; nhi&#7873;u &#273;&#417;n t&#7891;n + nh&#7853;n th&ecirc;m = giao tr&#7877;. Ng&#7915;ng nh&#7853;n &#273;&#417;n m&#7899;i, x&#7917; l&yacute; t&#7891;n, giao &#273;&uacute;ng h&#7841;n."><strong>Manufacturing analogy:</strong> In a factory, WIP = orders. Too many unfinished orders + new ones arriving = late deliveries. Stop new intake, clear the backlog, and orders ship on time.</blockquote>
+
+            <span class="page-num">10</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 5 — WAY 1: FLOW ====== -->
+      <div class="leaf" id="leaf-5">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter V &mdash; The First Way" data-vi="Ch&#432;&#417;ng V &mdash; Nguy&ecirc;n t&#7855;c 1">Chapter V &mdash; The First Way</span>
+            <h2 class="chapter-title" data-en="Flow" data-vi="L&#432;u L&#432;&#7907;ng">Flow</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Flow animation: items moving left to right through 3 stages -->
+            <div class="tw-flow-anim">
+              <div class="tw-flow-stage tw-flow-dev">
+                <div class="tw-flow-box">DEV</div>
+              </div>
+              <div class="tw-flow-arrow">
+                <div class="tw-flow-dot tw-fd-1"></div>
+                <div class="tw-flow-dot tw-fd-2"></div>
+                <div class="tw-flow-dot tw-fd-3"></div>
+                <div class="tw-flow-line"></div>
+              </div>
+              <div class="tw-flow-stage tw-flow-ops">
+                <div class="tw-flow-box">OPS</div>
+              </div>
+              <div class="tw-flow-arrow">
+                <div class="tw-flow-dot tw-fd-4"></div>
+                <div class="tw-flow-dot tw-fd-5"></div>
+                <div class="tw-flow-dot tw-fd-6"></div>
+                <div class="tw-flow-line"></div>
+              </div>
+              <div class="tw-flow-stage tw-flow-cust">
+                <div class="tw-flow-box">&#9733;</div>
+              </div>
+              <div class="tw-flow-labels">
+                <span data-en="Development" data-vi="Ph&aacute;t tri&#7875;n">Development</span>
+                <span data-en="Operations" data-vi="V&#7853;n h&agrave;nh">Operations</span>
+                <span data-en="Customer" data-vi="Kh&aacute;ch h&agrave;ng">Customer</span>
+              </div>
+            </div>
+
+            <p class="body-text" data-en="Ensure work always flows &lt;strong&gt;left to right&lt;/strong&gt; &mdash; from Development to Operations to the Customer. Maximize throughput of the entire system, not just one part." data-vi="&#272;&#7843;m b&#7843;o c&ocirc;ng vi&#7879;c lu&ocirc;n &#273;i &lt;strong&gt;t&#7915; tr&aacute;i qua ph&#7843;i&lt;/strong&gt; &mdash; t&#7915; Ph&aacute;t tri&#7875;n &#273;&#7871;n V&#7853;n h&agrave;nh &#273;&#7871;n Kh&aacute;ch h&agrave;ng. T&#7889;i &#273;a h&oacute;a l&#432;u l&#432;&#7907;ng to&agrave;n h&#7879; th&#7889;ng, kh&ocirc;ng ch&#7881; m&#7897;t ph&#7847;n.">Ensure work always flows <strong>left to right</strong> &mdash; from Development to Operations to the Customer. Maximize throughput of the entire system, not just one part.</p>
+
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Define work clearly&lt;/strong&gt; &mdash; purpose, requirements, volume, time needed." data-vi="&lt;strong&gt;&#272;&#7883;nh h&igrave;nh c&ocirc;ng vi&#7879;c&lt;/strong&gt; &mdash; m&#7909;c &#273;&iacute;ch, y&ecirc;u c&#7847;u, kh&#7889;i l&#432;&#7907;ng, th&#7901;i gian."><strong>Define work clearly</strong> &mdash; purpose, requirements, volume, time needed.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Reduce batch sizes&lt;/strong&gt; &mdash; use sprints. Finish each sprint without carrying debt." data-vi="&lt;strong&gt;Gi&#7843;m k&iacute;ch c&#7905; l&ocirc;&lt;/strong&gt; &mdash; d&ugrave;ng sprint. Ho&agrave;n th&agrave;nh m&#7895;i sprint kh&ocirc;ng &#273;&#7875; n&#7907;."><strong>Reduce batch sizes</strong> &mdash; use sprints. Finish each sprint without carrying debt.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Limit WIP&lt;/strong&gt; &mdash; stop starting, start finishing." data-vi="&lt;strong&gt;Gi&#7899;i h&#7841;n WIP&lt;/strong&gt; &mdash; ng&#7915;ng b&#7855;t &#273;&#7847;u, b&#7855;t &#273;&#7847;u ho&agrave;n th&agrave;nh."><strong>Limit WIP</strong> &mdash; stop starting, start finishing.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Synchronize changes&lt;/strong&gt; &mdash; build systems that handle changes together." data-vi="&lt;strong&gt;&#272;&#7891;ng b&#7897; thay &#273;&#7893;i&lt;/strong&gt; &mdash; x&acirc;y d&#7921;ng h&#7879; th&#7889;ng x&#7917; l&yacute; thay &#273;&#7893;i &#273;&#7891;ng b&#7897;."><strong>Synchronize changes</strong> &mdash; build systems that handle changes together.</p></div>
+
+            <span class="page-num">11</span>
+          </div>
+        </div>
+
+        <!-- WAY 2: FEEDBACK -->
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter V &mdash; The Second Way" data-vi="Ch&#432;&#417;ng V &mdash; Nguy&ecirc;n t&#7855;c 2">Chapter V &mdash; The Second Way</span>
+            <h2 class="chapter-title" data-en="Feedback" data-vi="Ph&#7843;n H&#7891;i">Feedback</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Feedback loop animation -->
+            <div class="tw-feedback-anim">
+              <svg class="tw-fb-svg" viewBox="0 0 400 160">
+                <!-- Forward arrow (top) -->
+                <path d="M60 40 L340 40" stroke="var(--blue-accent)" stroke-width="2.5" fill="none" stroke-dasharray="6 4" class="tw-fb-path-fwd"/>
+                <polygon points="340,34 355,40 340,46" fill="var(--blue-accent)"/>
+                <!-- Backward arrow (bottom) -->
+                <path d="M340 120 L60 120" stroke="var(--green-accent)" stroke-width="2.5" fill="none" stroke-dasharray="6 4" class="tw-fb-path-back"/>
+                <polygon points="60,114 45,120 60,126" fill="var(--green-accent)"/>
+                <!-- Labels -->
+                <text x="200" y="30" text-anchor="middle" fill="var(--blue-accent)" font-size="12" font-family="EB Garamond" data-en="Work flows forward" data-vi="C&ocirc;ng vi&#7879;c &#273;i t&#7899;i">Work flows forward</text>
+                <text x="200" y="145" text-anchor="middle" fill="var(--green-accent)" font-size="12" font-family="EB Garamond" data-en="Feedback flows back" data-vi="Ph&#7843;n h&#7891;i quay l&#7841;i">Feedback flows back</text>
+                <!-- Nodes -->
+                <rect x="30" y="55" width="70" height="50" rx="8" fill="rgba(58,90,122,0.1)" stroke="var(--blue-accent)" stroke-width="1.5"/>
+                <text x="65" y="84" text-anchor="middle" fill="var(--blue-accent)" font-size="13" font-weight="700" font-family="Playfair Display">DEV</text>
+                <rect x="165" y="55" width="70" height="50" rx="8" fill="rgba(139,112,50,0.1)" stroke="var(--gold-dim)" stroke-width="1.5"/>
+                <text x="200" y="84" text-anchor="middle" fill="var(--gold-dim)" font-size="13" font-weight="700" font-family="Playfair Display">OPS</text>
+                <rect x="300" y="55" width="70" height="50" rx="8" fill="rgba(74,107,58,0.1)" stroke="var(--green-accent)" stroke-width="1.5"/>
+                <text x="335" y="84" text-anchor="middle" fill="var(--green-accent)" font-size="13" font-weight="700" font-family="Playfair Display">USER</text>
+                <!-- Moving dot forward -->
+                <circle r="5" fill="var(--blue-accent)" class="tw-fb-dot-fwd"><animateMotion dur="3s" repeatCount="indefinite" path="M60,40 L340,40"/></circle>
+                <!-- Moving dot backward -->
+                <circle r="5" fill="var(--green-accent)" class="tw-fb-dot-back"><animateMotion dur="3s" repeatCount="indefinite" path="M340,120 L60,120"/></circle>
+              </svg>
+            </div>
+
+            <p class="body-text" data-en="Create a &lt;strong&gt;synchronized feedback loop&lt;/strong&gt;. A perfect system is impossible, but complex systems can be made safer:" data-vi="T&#7841;o &lt;strong&gt;v&ograve;ng ph&#7843;n h&#7891;i &#273;&#7891;ng b&#7897;&lt;/strong&gt;. H&#7879; th&#7889;ng ho&agrave;n h&#7843;o l&agrave; b&#7845;t kh&#7843; thi, nh&#432;ng c&oacute; th&#7875; an to&agrave;n h&#417;n:">Create a <strong>synchronized feedback loop</strong>. A perfect system is impossible, but complex systems can be made safer:</p>
+
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Detect problems quickly&lt;/strong&gt; &mdash; strengthen information flow in the system." data-vi="&lt;strong&gt;Ph&aacute;t hi&#7879;n v&#7845;n &#273;&#7873; nhanh&lt;/strong&gt; &mdash; t&#259;ng c&#432;&#7901;ng d&ograve;ng th&ocirc;ng tin."><strong>Detect problems quickly</strong> &mdash; strengthen information flow in the system.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Gather and resolve together&lt;/strong&gt; &mdash; learn from mistakes collectively, don&rsquo;t fix in isolation." data-vi="&lt;strong&gt;T&#7853;p h&#7907;p v&agrave; gi&#7843;i quy&#7871;t&lt;/strong&gt; &mdash; h&#7885;c t&#7915; sai l&#7847;m chung, kh&ocirc;ng s&#7917;a ri&ecirc;ng l&#7867;."><strong>Gather and resolve together</strong> &mdash; learn from mistakes collectively, don&rsquo;t fix in isolation.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Share local knowledge&lt;/strong&gt; &mdash; exploit it across the entire organization." data-vi="&lt;strong&gt;Chia s&#7867; ki&#7871;n th&#7913;c&lt;/strong&gt; &mdash; khai th&aacute;c ki&#7871;n th&#7913;c c&#7909;c b&#7897; trong to&agrave;n t&#7893; ch&#7913;c."><strong>Share local knowledge</strong> &mdash; exploit it across the entire organization.</p></div>
+            <div class="key-point"><span class="key-bullet">&#9753;</span><p class="key-text" data-en="&lt;strong&gt;Leaders train leaders&lt;/strong&gt; &mdash; continuously develop capabilities to solve bottlenecks." data-vi="&lt;strong&gt;L&atilde;nh &#273;&#7841;o &#273;&agrave;o t&#7841;o l&atilde;nh &#273;&#7841;o&lt;/strong&gt; &mdash; li&ecirc;n t&#7909;c ph&aacute;t tri&#7875;n kh&#7843; n&#259;ng gi&#7843;i quy&#7871;t bottleneck."><strong>Leaders train leaders</strong> &mdash; continuously develop capabilities to solve bottlenecks.</p></div>
+
+            <span class="page-num">12</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 5B — WAY 3: LEARNING + CONCLUSION ====== -->
+      <div class="leaf" id="leaf-5b">
+        <div class="leaf-front">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter V &mdash; The Third Way" data-vi="Ch&#432;&#417;ng V &mdash; Nguy&ecirc;n t&#7855;c 3">Chapter V &mdash; The Third Way</span>
+            <h2 class="chapter-title" data-en="Continual Learning" data-vi="H&#7885;c H&#7887;i Li&ecirc;n T&#7909;c">Continual Learning</h2>
+            <div class="chapter-rule"></div>
+
+            <!-- Growth steps animation -->
+            <div class="tw-learn-anim">
+              <div class="tw-learn-step tw-ls-1">
+                <div class="tw-learn-bar"></div>
+                <span data-en="Try" data-vi="Th&#7917;">Try</span>
+              </div>
+              <div class="tw-learn-step tw-ls-2">
+                <div class="tw-learn-bar"></div>
+                <span data-en="Fail" data-vi="Th&#7845;t b&#7841;i">Fail</span>
+              </div>
+              <div class="tw-learn-step tw-ls-3">
+                <div class="tw-learn-bar"></div>
+                <span data-en="Learn" data-vi="H&#7885;c">Learn</span>
+              </div>
+              <div class="tw-learn-step tw-ls-4">
+                <div class="tw-learn-bar"></div>
+                <span data-en="Improve" data-vi="C&#7843;i ti&#7871;n">Improve</span>
+              </div>
+              <div class="tw-learn-step tw-ls-5">
+                <div class="tw-learn-bar"></div>
+                <span data-en="Master" data-vi="Th&agrave;nh th&#7841;o">Master</span>
+              </div>
+              <!-- Climbing person -->
+              <div class="tw-learn-climber">
+                <svg viewBox="0 0 24 28" width="28" height="32"><circle cx="12" cy="5" r="4" fill="currentColor"/><path d="M12 9 C6 9 4 14 4 18 L20 18 C20 14 18 9 12 9Z" fill="currentColor"/></svg>
+              </div>
+            </div>
+
+            <p class="body-text" data-en="Foster a culture of &lt;strong&gt;continual learning and experimentation&lt;/strong&gt;. Take risks, learn from failure, and understand that repetition and practice are prerequisites to mastery." data-vi="Nu&ocirc;i d&#432;&#7905;ng v&#259;n h&oacute;a &lt;strong&gt;h&#7885;c h&#7887;i v&agrave; th&#7917; nghi&#7879;m li&ecirc;n t&#7909;c&lt;/strong&gt;. Ch&#7845;p nh&#7853;n r&#7911;i ro, h&#7885;c t&#7915; th&#7845;t b&#7841;i, v&agrave; hi&#7875;u r&#7857;ng l&#7863;p l&#7841;i v&agrave; th&#7921;c h&agrave;nh l&agrave; ti&#7873;n &#273;&#7873; &#273;&#7875; th&agrave;nh th&#7841;o.">Foster a culture of <strong>continual learning and experimentation</strong>. Take risks, learn from failure, and understand that repetition and practice are prerequisites to mastery.</p>
+
+            <blockquote class="page-quote" data-en="It doesn&rsquo;t matter what you improve, as long as you&rsquo;re improving something. Why? Because if you&rsquo;re not improving, entropy guarantees that you&rsquo;re actually getting worse." data-vi="B&#7841;n c&#7843;i ti&#7871;n c&aacute;i g&igrave; kh&ocirc;ng quan tr&#7885;ng, mi&#7877;n l&agrave; b&#7841;n &#273;ang c&#7843;i ti&#7871;n. V&igrave; n&#7871;u kh&ocirc;ng ti&#7871;n b&#7897;, entropy &#273;&#7843;m b&#7843;o b&#7841;n &#273;ang t&#7909;t h&#7853;u.">It doesn&rsquo;t matter what you improve, as long as you&rsquo;re improving something. Why? Because if you&rsquo;re not improving, entropy guarantees that you&rsquo;re actually getting worse.<cite>&mdash; Erik Reid, quoting Mike Rother</cite></blockquote>
+
+            <span class="page-num">13</span>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="page">
+            <span class="chapter-label" data-en="Chapter VI" data-vi="Ch&#432;&#417;ng VI">Chapter VI</span>
+            <h2 class="chapter-title" data-en="Conclusion" data-vi="K&#7871;t Lu&#7853;n">Conclusion</h2>
+            <div class="chapter-rule"></div>
+
+            <p class="body-text drop-cap" data-en="The Phoenix Project demonstrates that IT is not separate from the business &mdash; it &lt;em&gt;is&lt;/em&gt; the business. Through Bill Palmer&rsquo;s journey, we learn that the same principles that revolutionized manufacturing can transform IT operations." data-vi="The Phoenix Project ch&#7913;ng minh r&#7857;ng CNTT kh&ocirc;ng t&aacute;ch r&#7901;i kh&#7887;i doanh nghi&#7879;p &mdash; n&oacute; &lt;em&gt;ch&iacute;nh l&agrave;&lt;/em&gt; doanh nghi&#7879;p. Qua h&agrave;nh tr&igrave;nh c&#7911;a Bill Palmer, ch&uacute;ng ta h&#7885;c &#273;&#432;&#7907;c r&#7857;ng c&aacute;c nguy&ecirc;n l&yacute; &#273;&atilde; c&aacute;ch m&#7841;ng h&oacute;a s&#7843;n xu&#7845;t c&oacute; th&#7875; bi&#7871;n &#273;&#7893;i v&#7853;n h&agrave;nh CNTT.">The Phoenix Project demonstrates that IT is not separate from the business &mdash; it <em>is</em> the business. Through Bill Palmer&rsquo;s journey, we learn that the same principles that revolutionized manufacturing can transform IT operations.</p>
+
+            <div class="concl-lessons">
+
+              <!-- 1. Make work visible -->
+              <div class="concl-card concl-c1">
+                <div class="concl-icon-wrap">
+                  <svg class="concl-icon" viewBox="0 0 40 40">
+                    <!-- Eye icon -->
+                    <ellipse cx="20" cy="20" rx="16" ry="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="5" fill="currentColor"/>
+                    <circle cx="20" cy="20" r="2" fill="var(--parchment-light)"/>
+                    <!-- Scan line sweeping -->
+                    <line x1="20" y1="8" x2="20" y2="32" stroke="currentColor" stroke-width="1" opacity="0.4" class="concl-scan"/>
+                  </svg>
+                </div>
+                <div class="concl-text">
+                  <span class="concl-title" data-en="Make Work Visible" data-vi="L&agrave;m c&ocirc;ng vi&#7879;c hi&#7879;n h&#7919;u">Make Work Visible</span>
+                  <p class="concl-desc" data-en="You cannot manage what you cannot see. Visualize the flow, identify bottlenecks, limit WIP." data-vi="Kh&ocirc;ng th&#7875; qu&#7843;n l&yacute; &#273;i&#7873;u kh&ocirc;ng nh&igrave;n th&#7845;y. Tr&#7921;c quan h&oacute;a lu&#7891;ng, x&aacute;c &#273;&#7883;nh n&uacute;t th&#7855;t, gi&#7899;i h&#7841;n WIP.">You cannot manage what you cannot see. Visualize the flow, identify bottlenecks, limit WIP.</p>
+                </div>
+              </div>
+
+              <!-- 2. Protect constraints -->
+              <div class="concl-card concl-c2">
+                <div class="concl-icon-wrap">
+                  <svg class="concl-icon" viewBox="0 0 40 40">
+                    <!-- Shield icon -->
+                    <path d="M20 4 L34 12 L34 24 C34 32 20 38 20 38 C20 38 6 32 6 24 L6 12 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M20 8 L30 14 L30 24 C30 30 20 34 20 34 C20 34 10 30 10 24 L10 14 Z" fill="currentColor" opacity="0.15"/>
+                    <text x="20" y="25" text-anchor="middle" fill="currentColor" font-size="14" font-weight="700">&#10003;</text>
+                  </svg>
+                </div>
+                <div class="concl-text">
+                  <span class="concl-title" data-en="Protect Constraints" data-vi="B&#7843;o v&#7879; &#273;i&#7875;m ngh&#7869;n">Protect Constraints</span>
+                  <p class="concl-desc" data-en="System throughput is governed by its bottleneck. Guard it fiercely." data-vi="N&#259;ng su&#7845;t h&#7879; th&#7889;ng do n&uacute;t th&#7855;t quy&#7871;t &#273;&#7883;nh. H&atilde;y b&#7843;o v&#7879; n&oacute;.">System throughput is governed by its bottleneck. Guard it fiercely.</p>
+                </div>
+              </div>
+
+              <!-- 3. Reduce batch sizes -->
+              <div class="concl-card concl-c3">
+                <div class="concl-icon-wrap">
+                  <svg class="concl-icon" viewBox="0 0 40 40">
+                    <!-- Big box breaking into small boxes -->
+                    <rect x="4" y="12" width="12" height="12" rx="2" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1"/>
+                    <!-- Arrow -->
+                    <path d="M18 18 L22 18" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrowC)"/>
+                    <defs><marker id="arrowC" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5" fill="currentColor"/></marker></defs>
+                    <!-- Small boxes -->
+                    <rect x="25" y="8" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-1"/>
+                    <rect x="33" y="8" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-2"/>
+                    <rect x="25" y="16" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-3"/>
+                    <rect x="33" y="16" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-4"/>
+                    <rect x="25" y="24" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-5"/>
+                    <rect x="33" y="24" width="6" height="6" rx="1" fill="currentColor" opacity="0.6" class="concl-box-6"/>
+                  </svg>
+                </div>
+                <div class="concl-text">
+                  <span class="concl-title" data-en="Reduce Batch Sizes" data-vi="Gi&#7843;m k&iacute;ch c&#7905; l&ocirc;">Reduce Batch Sizes</span>
+                  <p class="concl-desc" data-en="Small, frequent deployments beat large, rare releases. The heart of CI/CD." data-vi="Tri&#7875;n khai nh&#7887;, th&#432;&#7901;ng xuy&ecirc;n t&#7889;t h&#417;n ph&aacute;t h&agrave;nh l&#7899;n. Tr&aacute;i tim CI/CD.">Small, frequent deployments beat large, rare releases. The heart of CI/CD.</p>
+                </div>
+              </div>
+
+              <!-- 4. Learn from failure -->
+              <div class="concl-card concl-c4">
+                <div class="concl-icon-wrap">
+                  <svg class="concl-icon" viewBox="0 0 40 40">
+                    <!-- Lightbulb -->
+                    <circle cx="20" cy="16" r="10" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+                    <line x1="16" y1="28" x2="24" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="17" y1="31" x2="23" y2="31" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="18" y1="34" x2="22" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Light rays -->
+                    <line x1="20" y1="2" x2="20" y2="5" stroke="currentColor" stroke-width="1.5" class="concl-ray"/>
+                    <line x1="8" y1="8" x2="10" y2="10" stroke="currentColor" stroke-width="1.5" class="concl-ray"/>
+                    <line x1="32" y1="8" x2="30" y2="10" stroke="currentColor" stroke-width="1.5" class="concl-ray"/>
+                    <line x1="4" y1="18" x2="7" y2="18" stroke="currentColor" stroke-width="1.5" class="concl-ray"/>
+                    <line x1="36" y1="18" x2="33" y2="18" stroke="currentColor" stroke-width="1.5" class="concl-ray"/>
+                  </svg>
+                </div>
+                <div class="concl-text">
+                  <span class="concl-title" data-en="Learn from Failure" data-vi="H&#7885;c t&#7915; th&#7845;t b&#7841;i">Learn from Failure</span>
+                  <p class="concl-desc" data-en="Gather problems, solve them together, spread knowledge across the organization." data-vi="T&#7853;p h&#7907;p v&#7845;n &#273;&#7873;, gi&#7843;i quy&#7871;t c&ugrave;ng nhau, lan t&#7887;a ki&#7871;n th&#7913;c to&agrave;n t&#7893; ch&#7913;c.">Gather problems, solve them together, spread knowledge across the organization.</p>
+                </div>
+              </div>
+
+              <!-- 5. Communicate -->
+              <div class="concl-card concl-c5">
+                <div class="concl-icon-wrap">
+                  <svg class="concl-icon" viewBox="0 0 40 40">
+                    <!-- Two people connected -->
+                    <circle cx="12" cy="12" r="5" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="12" cy="26" rx="7" ry="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="28" cy="12" r="5" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="28" cy="26" rx="7" ry="5" fill="currentColor" opacity="0.5"/>
+                    <!-- Connecting line with pulse -->
+                    <line x1="17" y1="14" x2="23" y2="14" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2" class="concl-link"/>
+                  </svg>
+                </div>
+                <div class="concl-text">
+                  <span class="concl-title" data-en="Communicate" data-vi="Giao ti&#7871;p">Communicate</span>
+                  <p class="concl-desc" data-en="Department alignment is not optional. It is the foundation of everything." data-vi="Th&#7889;ng nh&#7845;t gi&#7919;a c&aacute;c ph&ograve;ng ban kh&ocirc;ng t&ugrave;y ch&#7885;n. &#272;&oacute; l&agrave; n&#7873;n t&#7843;ng.">Department alignment is not optional. It is the foundation of everything.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <span class="page-num">14</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== LEAF 7 — BACK COVER ====== -->
+      <div class="leaf" id="leaf-7">
+        <div class="leaf-front">
+          <div class="page">
+            <p class="body-text" style="text-align:center; margin-top: 40px;"
+               data-en="&lt;em&gt;Thank you for reading.&lt;/em&gt;"
+               data-vi="&lt;em&gt;C&#7843;m &#417;n b&#7841;n &#273;&atilde; &#273;&#7885;c.&lt;/em&gt;"><em>Thank you for reading.</em></p>
+
+            <blockquote class="page-quote" style="margin-top: 30px; text-align: center; border-left: none;"
+               data-en="Improving daily work is even more important than doing daily work."
+               data-vi="C&#7843;i thi&#7879;n c&ocirc;ng vi&#7879;c h&agrave;ng ng&agrave;y c&ograve;n quan tr&#7885;ng h&#417;n l&agrave;m c&ocirc;ng vi&#7879;c h&agrave;ng ng&agrave;y.">Improving daily work is even more important than doing daily work.<cite>&mdash; The Phoenix Project</cite></blockquote>
+
+            <div style="text-align:center; margin-top: 30px;">
+              <p class="body-text" data-en="&lt;strong&gt;Reference&lt;/strong&gt;" data-vi="&lt;strong&gt;Tham kh&#7843;o&lt;/strong&gt;"><strong>Reference</strong></p>
+              <p class="body-text" style="font-size: 11px; color: var(--ink-faded);">techtarget.com/whatis/reference/<br>Characters-and-quotes-from-The-Phoenix-Project</p>
+            </div>
+
+            <span class="page-num">15</span>
+          </div>
+        </div>
+        <div class="leaf-back">
+          <div class="cover-back">
+            <div class="back-cover-content">
+              <p class="back-quote"
+                 data-en="Until code is in production, no value is actually being generated."
+                 data-vi="Cho &#273;&#7871;n khi code l&ecirc;n production, kh&ocirc;ng c&oacute; gi&aacute; tr&#7883; n&agrave;o th&#7921;c s&#7921; &#273;&#432;&#7907;c t&#7841;o ra.">Until code is in production, no value is actually being generated.</p>
+              <p class="back-ornament">&#9753; &#9753; &#9753;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="book-controls">
+    <button class="btn-flip" id="btnPrev" disabled data-en="&larr; Previous" data-vi="&larr; Tr&#432;&#7899;c">&larr; Previous</button>
+    <span class="page-indicator" id="pageIndicator">Cover</span>
+    <button class="btn-flip" id="btnNext" data-en="Next &rarr;" data-vi="Ti&#7871;p &rarr;">Next &rarr;</button>
+  </div>
+
+  <script src="js/flipbook.js"></script>
+  <script src="js/lang.js"></script>
+
+</body>
+</html>
