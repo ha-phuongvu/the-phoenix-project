@@ -4,8 +4,8 @@ A 3D interactive flipbook presenting a review of **"The Phoenix Project"** by Ge
 
 ## Live Demo
 
-Open `index.html` in any modern browser.
-Deploy URL: https://the-phoenix-project-two.vercel.app/
+Open `index.html` in any modern browser. 
+  Deploy URL: https://the-phoenix-project-two.vercel.app/
 
 ## Features
 
